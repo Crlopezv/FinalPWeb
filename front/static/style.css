@@ -1,0 +1,156 @@
+header{
+    display: flex;
+    height: 225px;
+    background-color: black;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.cabecera{
+    padding: 300px;
+}
+.logo1{
+    width: px;
+    height: px;
+    padding: px;
+
+}
+
+.nav-item{
+    display:inline;
+    padding-left:10px;
+    padding-right:10px;
+}
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    padding: 10px;
+    color: rgb(122, 48, 48);
+}
+
+.descripcion{
+    text-align: center;
+    padding: 5p 25px;
+    color: rgb(31, 15, 15);
+}
+.card{
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+.card__perfil{
+    width: 300px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px black;
+    border: solid rgba(116, 7, 7, 0);
+    border-radius: 10px;
+}
+.card__perfil:hover{
+    border: solid rgb(116, 7, 7);
+}
+.card__perfil:hover img{
+    transform: rotate(0);
+}
+.caratula{
+    width: 140px;
+    border-radius: 50%;
+    box-shadow: black;
+    transform: rotate(-30deg);
+    transition: all .3s;
+}
+.card__nombre{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    gap: 20px;
+}
+hr{
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    margin: 20px 5px;
+}
+.cardbutton{
+    text-align: center;
+}
+.enlace{
+    background: black;
+    padding: 8px 20px;
+    color: white; 
+    text-decoration: none;
+}
+.pie-pagina{
+    width: 100%;
+    background-color: beige;
+}
+.pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1200 px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+}
+.pie-pagina .grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pie-pagina .grupo-1 .box figure img{
+    width: 250px;
+}
+.pie-pagina .grupo-1 .box h2{
+    color: black;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.pie-pagina .grupo-1 .box p{
+    color: #fff;
+    margin-bottom: 10px;
+}
+.pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    line-height: 45px;
+    color: white;
+    margin-right: 10px;
+    background-color: black;
+    text-align: center;
+    transition: all 300ms ease;
+}
+.pie-pagina .grupo-1 .red-social a:hover{
+    color: aqua;
+}
+.pie-pagina .grupo-2{
+    background-color: black;
+    padding: 15px 10px;
+    text-align: center;
+    color:white;
+}
+.pie-pagina .grupo-2 small{
+    font-size: 15px;
+}
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 25px;
+        padding: 25px 0px;
+    }
+}
+figure a{
+    width: 10%;
+}
