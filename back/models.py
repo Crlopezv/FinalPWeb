@@ -1,5 +1,6 @@
 import email
 from mailbox import NoSuchMailboxError
+from unittest.util import _MAX_LENGTH
 from xml.sax.handler import property_declaration_handler
 from django.db import models
 
@@ -8,6 +9,7 @@ from django.db import models
 class Usuario(models.Model):
     email = models.EmailField(max_length=150)
     nombre = models.CharField(max_length=30)
+    apellidos= models.CharField(_MAX_LENGTH=30)
     password = models.CharField(max_length=15)
 
     def str(self):
