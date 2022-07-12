@@ -18,6 +18,5 @@ def sesion(request):
 def usuarios(request):
     return render(request,'usuarios.html')
 
-def boleta(request):
-    return render(request,'boleta.html')
+
 

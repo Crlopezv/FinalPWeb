@@ -33,8 +33,6 @@ urlpatterns = [
 
     path('productos',productos),
 
-    path('boleta',boleta),
-
 
 
 ]
