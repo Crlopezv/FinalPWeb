@@ -9,8 +9,8 @@ from django.db import models
 class Usuario(models.Model):
     email = models.EmailField(max_length=150)
     nombre = models.CharField(max_length=30)
-    apellidos= models.CharField(_MAX_LENGTH=30)
-    password = models.CharField(max_length=15)
+    apellidos= models.CharField(max_length=30)
+    contraseña = models.CharField(max_length=15)
 
     def str(self):
         return self.nombre

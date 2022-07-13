@@ -85,20 +85,20 @@
     <h1 class="mb-5 py-3"></h1>
     <h1 class="display-3 text-primary py-3">Ingresa:</h1>
     <form id="formulario">
-      <div class="mb-3">
-        <label for="email" class="form-label text-primary">Email:</label>
-        <input type="text" class="form-control" id="email" placeholder="Ingresa acá tu correo"
-          aria-describedby="emaiHelp" required>
-
-        <div id="emailHelp" class="form-text text-primary">No compartiremos tu email con nadie.</div>
-      </div>
-      <div class="mb-4">
-        <label for="contraseña" class="form-label text-primary">Contraseña:</label>
-        <input type="password" class="form-control" placeholder="Ingresa tu contraseña" id="contraseña" required>
-      </div>
-      <button class="btn btn-primary w-100" type="submit">
-        Ingresar
-      </button>
+      <!--Ingreso de email-->
+      <li class="inputRegistro1">
+        <input type="email" class="buttonRegistro1 textbox validate[required,custom[email]]" data-errormessage-custom-error="Formato: tunombre@ejemplo.com" id="loginEmail" name="loginEmail" placeholder="tunombre@ejemplo.com">
+      </li>
+      <br>
+      <!--Ingreso de password-->
+      <li class="inputRegistro1">
+        <input type="password" class="buttonRegistro1 textbox validate[required]" data-errormessage-value-missing="Ingrese contraseña" id="loginPassword" name="loginPassword" placeholder="Contraseña">
+      </li>
+      <!--Boton submit-->
+      <br>
+      <li>
+        <input class="submit buttonRegistro1" type="submit" name="submit" id="submitLogin" value="Inicia sesión">
+      </li>
     </form>
   </div>
 
