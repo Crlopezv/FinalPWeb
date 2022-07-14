@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from back.views import perfil
 from front.views import *
+from back.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,6 +34,15 @@ urlpatterns = [
     path('discografia',discografia),
 
     path('productos',productos),
+
+    path('perfil',perfil),
+
+      #Cierra sesion
+    path('cerrar_sesion', cerrar_sesion),
+
+    
+    #valida el usuario url funcion
+    path('validarusuario',validarusuario),
 
 
 

@@ -12,10 +12,10 @@ def discografia(request):
 def productos(request):
     return render(request,'productos.html')
 
-def sesion(request):
-    return render(request,'iniciarSesion.html')
-
 def usuarios(request):
     return render(request,'usuarios.html')
+
+def perfil(request):
+    return render(request,'perfil.html')
 
 

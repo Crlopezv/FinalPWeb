@@ -10,95 +10,109 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!--Bootstrap ICONS-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+  <!--vEngine CSS-->
+  <link rel="stylesheet" href="{% static '../static/vEngine/css/validationEngine.jquery.css' %}" type="text/css"/>  
 
   <title>Iniciar Sesion</title>
 </head>
 
 <body>
- <!-- Navbar-Principal -->
- <nav id="navbarejemplo" class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top ">
-  <div class="container">
-      <a href="home" class="navbar-brand">
-          <img class="logo-nav" src="{% static 'img/logo.png' %}" class="icon icon-tabler icon-tabler-dog-bowl" width="130"
-              height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M10 15l5.586 -5.585a2 2 0 1 1 3.414 -1.415a2 2 0 1 1 -1.413 3.414l-3.587 3.586" />
-              <path d="M12 13l-3.586 -3.585a2 2 0 1 0 -3.414 -1.415a2 2 0 1 0 1.413 3.414l3.587 3.586" />
-              <path d="M3 20h18c-.175 -1.671 -.046 -3.345 -2 -5h-14c-1.333 1 -2 2.667 -2 5z" />
-          </svg></i>
-          <span class="align"></span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation">
+  <!-- Navbar-Principal -->
+  <nav id="navbarejemplo" class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top ">
+    <div class="container">
+        <a href="home" class="navbar-brand">
+            <img class="logo-nav" src="{% static 'img/logo.png' %}" class="icon icon-tabler icon-tabler-dog-bowl" width="130"
+                height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 15l5.586 -5.585a2 2 0 1 1 3.414 -1.415a2 2 0 1 1 -1.413 3.414l-3.587 3.586" />
+                <path d="M12 13l-3.586 -3.585a2 2 0 1 0 -3.414 -1.415a2 2 0 1 0 1.413 3.414l3.587 3.586" />
+                <path d="M3 20h18c-.175 -1.671 -.046 -3.345 -2 -5h-14c-1.333 1 -2 2.667 -2 5z" />
+            </svg></i>
+            <span class="align"></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
 
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                  <a href="home" class="nav-link active" aria-current="page">
-                      Principal
-                  </a>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a href="home" class="nav-link active" aria-current="page">
+                        Principal
+                    </a>
 
-        </li>
-        <li class="nav-item">
-          <a href="sesion" class="nav-link active">
-            Iniciar Sesion
-          </a>
+          </li>
+          <li class="nav-item">
+            <a href="sesion" class="nav-link active">
+              Iniciar Sesion
+            </a>
 
-        </li>
-        <li class="nav-item">
-          <a href="productos" class="nav-link active">
-            Productos
-          </a>
+          </li>
+          <li class="nav-item">
+            <a href="productos" class="nav-link active">
+              Productos
+            </a>
 
-        </li>
-
-
-        <li class="nav-item">
-          <a href="discografia" class="nav-link active">
-            Discografía
-          </a>
-
-        </li>
-        
-        <li class="nav-item">
-          <a href="usuarios" class="nav-link active">
-            Registro Usuario
-          </a>
-
-        </li>
+          </li>
 
 
+          <li class="nav-item">
+            <a href="discografia" class="nav-link active">
+              Discografía
+            </a>
 
-      </ul>
+          </li>
+          
+          <li class="nav-item">
+            <a href="usuarios" class="nav-link active">
+              Registro Usuario
+            </a>
+
+          </li>
+
+          <a class=" d-flex" href="/perfil">
+            <button class="boton-perfil btn" type="submit">
+                <i class="persona-perfil bi bi-person-lines-fill"></i>
+            </button>
+           </a>
+
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
-<!-- Navbar -->
-
+  </nav>
+  <!-- Navbar -->
 
 
   <div class="container py-5">
     <h1 class="mb-5 py-3"></h1>
     <h1 class="display-3 text-primary py-3">Ingresa:</h1>
-    <form id="formulario">
-      <!--Ingreso de email-->
-      <li class="inputRegistro1">
-        <input type="email" class="buttonRegistro1 textbox validate[required,custom[email]]" data-errormessage-custom-error="Formato: tunombre@ejemplo.com" id="loginEmail" name="loginEmail" placeholder="tunombre@ejemplo.com">
-      </li>
-      <br>
-      <!--Ingreso de password-->
-      <li class="inputRegistro1">
-        <input type="password" class="buttonRegistro1 textbox validate[required]" data-errormessage-value-missing="Ingrese contraseña" id="loginPassword" name="loginPassword" placeholder="Contraseña">
-      </li>
-      <!--Boton submit-->
-      <br>
-      <li>
-        <input class="submit buttonRegistro1" type="submit" name="submit" id="submitLogin" value="Inicia sesión">
-      </li>
+    <form id="loginForm" class="formRegistro1" action="/validarusuario" method="post" name="login">
+      {% csrf_token %}
+      <ul class="list-unstyled">
+        <!--Ingreso de email-->
+        <li class="inputRegistro1">
+          <input type="email" textbox validate[required,custom[email]]"
+            data-errormessage-custom-error="Formato: tunombre@ejemplo.com" id="loginEmail" name="loginEmail"
+            placeholder="tunombre@ejemplo.com">
+        </li>
+        <br>
+        <!--Ingreso de password-->
+        <li class="inputRegistro1">
+          <input type="password" textbox validate[required]" data-errormessage-value-missing="Ingrese contraseña"
+            id="loginPassword" name="loginPassword" placeholder="Contraseña">
+        </li>
+        <!--Boton submit-->
+        <br>
+        <li>
+          <input class="submit" type="submit" name="submit" id="submitLogin" value="Inicia sesión">
+        </li>
+      </ul>
     </form>
   </div>
 
@@ -108,10 +122,9 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>
 
-  <script src="app.js">
-
-  </script>
-
+<script>
+  $("#loginForm").validationEngine({promptPosition : "centerRight"});
+</script>
 
 </body>
 
