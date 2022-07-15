@@ -7,9 +7,8 @@ from django.db import models
 # Create your models here.
 
 class Usuario(models.Model):
-    email = models.EmailField(max_length=150)
+    email = models.EmailField(max_length=130)
     nombre = models.CharField(max_length=30)
-    apellidos= models.CharField(max_length=30)
     contraseña = models.CharField(max_length=15)
 
     def str(self):

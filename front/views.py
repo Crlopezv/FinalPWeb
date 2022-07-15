@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from back.models import *
 
 # Create your views here.
 
@@ -10,12 +11,14 @@ def discografia(request):
     return render(request,'discografia.html')
 
 def productos(request):
-    return render(request,'productos.html')
+    producto = Producto.objects.filter(categoria_id=1)
+    datos = {'producto':producto}
+    return render(request,'productos.html',datos)
 
 def usuarios(request):
     return render(request,'usuarios.html')
 
 def perfil(request):
     return render(request,'perfil.html')
-
+    
 

@@ -2,7 +2,10 @@ from django.shortcuts import render
 from .models import Usuario, Categoria
 from django.shortcuts import redirect, render
 from django.contrib.auth import logout
-
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib import messages
+from .forms import ProductoForm
+from .models import Producto
 # Create your views here.
 def sesion(request):
     return render(request,'iniciarSesion.html')
@@ -10,16 +13,37 @@ def sesion(request):
 #---Registrar bdb->
 def registrarUsuario(request):
     #obtiene datos desde el formulario en registro
-    r_correo = request.POST.get('registroEmail')
-    r_nombre = request.POST.get('registroNombre')
-    r_apellido = request.POST.get('registroApellido')
-    r_pass1=request.POST.get('passwordRegistro1')
+    r_correo= request.POST.get('registroEmail')
+    r_nombre= request.POST.get('registroNombre')
+    r_pass1=request.POST.get('registroContraseña')
 #Registra al usuario en la BBDD
     nuevo_usuario=Usuario()
     nuevo_usuario.email=r_correo
     nuevo_usuario.nombre=r_nombre
     nuevo_usuario.contraseña=r_pass1
     Usuario.save(nuevo_usuario)
+    return redirect('/sesion')
+
+def admin_productos(request):
+    form = ProductoForm()
+    producto = Producto.objects.all()
+    datos={'producto':producto,'form':form}
+
+    return render(request,'admin_productos.html',datos)
+
+def register(request):
+    r_correo= request.POST.get('registroEmail')
+    r_nombre= request.POST.get('registroNombre')
+    r_apellido= request.POST.get('registroApellido')
+    r_pass1=request.POST.get('passwordRegistro1')
+    if len(r_correo)>0 and len(r_nombre)>0 and len(r_pass1)>0 and len(r_apellido):
+        r_User = Usuario(email=r_correo,nombre=r_nombre,contraseña=r_pass1,apellidos=r_apellido)
+        r_User.save()
+        messages.success(request, 'La cuenta ha sido creada!')
+        return HttpResponseRedirect('sesion')
+    else:
+        messages.error(request, 'La cuenta ya existe o hubo un error al ingresar los datos.')
+        return HttpResponseRedirect('usuarios')
 
 def validarusuario(request):
     v_correo = request.POST.get('loginEmail')
@@ -49,3 +73,74 @@ def cerrar_sesion(request):
         return redirect('/sesion')
     else:
         return redirect('/home')
+
+#CRUD DE PRODUCTOS
+
+def admin_edit(request):
+    form = ProductoForm()
+    producto = Producto.objects.all()
+    datos={'producto':producto,'form':form}
+
+    return render(request, 'admin_edit.html', datos)
+
+def guardarProducto(request):
+    #pasando la data a las variables
+    v_categoria=request.POST.get('categoria')
+    v_nombre_producto=request.POST.get('nombre_producto')
+    v_precio_producto=request.POST.get('precio_producto')
+    v_stock_producto=request.POST.get('stock_producto')
+    v_descripcion_producto=request.POST.get('descripcion_producto')
+    v_imagen=request.POST.get('imagen')
+    
+    nuevo=Producto()
+    nuevo.categoria= Categoria.objects.get(id = request.POST['categoria'])
+    nuevo.nombre_producto=v_nombre_producto
+    nuevo.precio_producto=v_precio_producto
+    nuevo.stock_producto=v_stock_producto
+    nuevo.descripcion_producto=v_descripcion_producto
+    nuevo.imagen= v_imagen
+
+    #guarda la data del objeto
+    Producto.save(nuevo)
+
+    return redirect('/admin_productos')
+
+
+#Buscar producto
+def buscarProducto(request, p_id):
+    buscado=Producto.objects.get(id=p_id)
+    datos={'producto': buscado}
+    return render(request, 'admin_edit.html', datos)
+
+
+#modificar productos
+def guardarProductoModificado(request):
+    v_id=request.POST.get('id')
+    v_categoria=request.POST.get('categoria')
+    v_nombre_producto=request.POST.get('nombre_producto')
+    v_precio_producto=request.POST.get('precio_producto')
+    v_stock_producto=request.POST.get('stock_producto')
+    v_descripcion_producto=request.POST.get('descripcion_producto')
+    v_imagen=request.POST.get('imagen')
+    
+    buscado=Producto.objects.get(id=v_id)
+
+    if(buscado):
+        buscado.categoria_id=v_categoria
+        buscado.nombre_producto=v_nombre_producto
+        buscado.precio_producto=v_precio_producto
+        buscado.descripcion_producto=v_descripcion_producto
+        buscado.nombre_producto=v_nombre_producto
+        buscado.imagen=v_imagen
+        buscado.stock_producto=v_stock_producto
+
+        Producto.save(buscado)
+        return redirect('/admin_productos')
+
+
+#eliminar productos
+def eliminarProducto(request, p_id):
+    buscado=Producto.objects.get(id=p_id)
+    if(buscado):
+        Producto.delete(buscado)
+        return redirect('/admin_productos')

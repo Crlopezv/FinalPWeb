@@ -20,7 +20,7 @@
   <body>
 
   <!-- Navbar-Principal -->
-  <nav id="navbarejemplo" class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top ">
+  <nav id="navbarejemplo" class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color: rgb(38, 38, 38);">
     <div class="container">
       <a href="home" class="navbar-brand">
         <img class="logo-nav" src="{% static 'img/logo.png' %}" class="icon icon-tabler icon-tabler-dog-bowl" width="130"
@@ -47,12 +47,6 @@
   
           </li>
           <li class="nav-item">
-            <a href="sesion" class="nav-link active">
-              Iniciar Sesion
-            </a>
-  
-          </li>
-          <li class="nav-item">
             <a href="productos" class="nav-link active">
               Productos
             </a>
@@ -67,16 +61,10 @@
   
           </li>
   
-          <li class="nav-item">
-            <a href="usuarios" class="nav-link active">
-              Registro Usuario
-            </a>
-  
-          </li>
   
           <a class=" d-flex" href="/perfil">
-            <button class="boton-perfil btn" type="submit">
-              <i class="persona-perfil bi bi-person-lines-fill"></i>
+            <button class="btn" type="submit" style="padding: 10px; background-color: black;">
+              <i class="persona-perfil bi bi-person-lines-fill" style="color: white;"></i>
             </button>
           </a>
           <!--Imagen Persona hypervinculo a Perfil/inicio de sesión-->
@@ -86,50 +74,35 @@
     </div>
   </nav>
   <!-- Navbar -->
-
-    <div class="container py-5 mt-4">
-
-      <div class="row justify-content-md-center">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Registro de Usuarios</h5>
-                <Form id="registroForm" action="/registrarUsuario" method="post" name="registro" >
-                  {% csrf_token %}
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="registrarNombre" class="text-primary mt-2">Nombre</label>
-                      <input type="text" class="form-control" id="registroNombre">
-                    </div>
-                
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="registroApellido" class="text-primary mt-2">Apellidos</label>
-                        <input type="text" class="form-control" id="registroApellido">
-                      </div>
-                
-                      <div class="form-group">
-                        <label for="registroEmail" class="text primary mt-2">Email</label>
-                        <input type="email" class="form-control mt-2" id="registroEmail" placeholder="No olvides el @">
-                      </div>
-                
-                      <div class="form-group">
-                        <label for="passwordRegistro1" class="text-primary mt-2">Contraseña</label>
-                        <input type="password" class="form-control mt-2" id="passwordRegistro1" placeholder="Máximo 15 caracteres">
-                      </div>
-                
-                
-                
-                      <a id="btnAgregarUsuario" class="btn btn-primary mt-3">Registrar</a>
-                      <a id="btnCancelarEdicion" class="btn btn-secondary mt-3">Limpiar</a>
-                </Form>
-            </div>
-          </div>
-        </div>
-
-
-
-    </div>
+<br><br><br><br>
+    <!--Registration form-->
+  <div id="bloque1" class="container auto" style="max-width: 30%;">
+    <form id="registroForm" class="formRegistro1" action="/registrarUsuario" method="post" name="registro">
+      {% csrf_token %}
+      <ul class="list-unstyled" style="padding: 30px; background-color: rgb(63, 63, 63);">
+        <li class="headerRegistro1">
+          <p style="color: rgb(220, 47, 55); font-weight: bold;">Registro</p>
+          <!--<img class="logoperro" src="{% static 'Imagenes\imagen.jpg' %}" alt="logo perro"> IMAGEN PARA EL FORM DE REGISTRO-->
+        </li>
+        <li class="descriptionRegistro1">
+          <p style="color: white;">Ingrese su nombre, correo y contraseña para registrar su cuenta</p>
+          <p style="color: white;">Si ya tienes cuenta, <a style="color: rgb(220, 47, 55)" href="sesion">Inicia sesion!</a></p>
+        </li>
+        <li class="inputRegistro1"><!--Ingresa nombre-->
+          <input type="text" class="buttonRegistro1 textbox validate[required]" data-errormessage-value-missing="Ingrese un nombre"  id="registroNombre" name="registroNombre" placeholder="Tu nombre">
+        </li><br>
+        <li class="inputRegistro1"><!--Ingresar correo-->
+          <input type="email"  class="buttonRegistro1 textbox validate[required,custom[email]]" data-errormessage-custom-error="Formato: tunombre@ejemplo.com" id="registroEmail" name="registroEmail" placeholder="nombre@ejemplo.com">
+        </li>
+        <br>
+        <li class="inputRegistro1"> <!--Password-->
+          <input type="password" class="buttonRegistro1 textbox validate[required]" data-errormessage-value-missing="Ingrese una contraseña" id="registroContraseña" name="registroContraseña" placeholder="Contraseña">
+        </li>
+        <br>
+        <input type="submit" class="buttonRegistro1 submit" id="submitRegistro1" value="Registrarse">
+    </ul>
+    </form>
+  </div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

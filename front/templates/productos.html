@@ -17,164 +17,158 @@
 </head>
 
 
-<body>
+<body style="background-color: rgb(73, 69, 77);">
 
   <!-- Navbar-Principal -->
-  <nav id="navbarejemplo" class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top ">
+  <nav id="navbarejemplo" class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color: rgb(38, 38, 38);">
     <div class="container">
-        <a href="home" class="navbar-brand">
-            <img class="logo-nav" src="{% static 'img/logo.png' %}" class="icon icon-tabler icon-tabler-dog-bowl" width="130"
-                height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M10 15l5.586 -5.585a2 2 0 1 1 3.414 -1.415a2 2 0 1 1 -1.413 3.414l-3.587 3.586" />
-                <path d="M12 13l-3.586 -3.585a2 2 0 1 0 -3.414 -1.415a2 2 0 1 0 1.413 3.414l3.587 3.586" />
-                <path d="M3 20h18c-.175 -1.671 -.046 -3.345 -2 -5h-14c-1.333 1 -2 2.667 -2 5z" />
-            </svg></i>
-            <span class="align"></span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a href="home" class="nav-link active" aria-current="page">
-                        Principal
-                    </a>
-
-          </li>
+      <a href="home" class="navbar-brand">
+        <img class="logo-nav" src="{% static 'img/logo.png' %}" class="icon icon-tabler icon-tabler-dog-bowl" width="130"
+          height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
+          stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M10 15l5.586 -5.585a2 2 0 1 1 3.414 -1.415a2 2 0 1 1 -1.413 3.414l-3.587 3.586" />
+        <path d="M12 13l-3.586 -3.585a2 2 0 1 0 -3.414 -1.415a2 2 0 1 0 1.413 3.414l3.587 3.586" />
+        <path d="M3 20h18c-.175 -1.671 -.046 -3.345 -2 -5h-14c-1.333 1 -2 2.667 -2 5z" />
+        </svg></i>
+        <span class="align"></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a href="sesion" class="nav-link active">
-              Iniciar Sesion
+            <a href="home" class="nav-link active" aria-current="page">
+              Principal
             </a>
-
+  
           </li>
           <li class="nav-item">
             <a href="productos" class="nav-link active">
               Productos
             </a>
-
+  
           </li>
-
-
+  
+  
           <li class="nav-item">
             <a href="discografia" class="nav-link active">
               Discografía
             </a>
-
+  
           </li>
-          
-          <li class="nav-item">
-            <a href="usuarios" class="nav-link active">
-              Registro Usuario
-            </a>
-
-          </li>
-
+  
+  
           <a class=" d-flex" href="/perfil">
-            <button class="boton-perfil btn" type="submit">
-                <i class="persona-perfil bi bi-person-lines-fill"></i>
+            <button class="btn" type="submit" style="padding: 10px; background-color: black;">
+              <i class="persona-perfil bi bi-person-lines-fill" style="color: white;"></i>
             </button>
-           </a><!--Imagen Persona hypervinculo a Perfil/inicio de sesión-->
-
+          </a>
+          <!--Imagen Persona hypervinculo a Perfil/inicio de sesión-->
+  
         </ul>
       </div>
     </div>
   </nav>
   <!-- Navbar -->
-    <h1 class="py-2"></h1>
-    
-   
-
-
-    <!-- Titulo y id con el cual se generan las card por js -->
-    <div class="container py-5">
-        <h1 class="mt-5 text-primary">Productos</h1>
-        <hr>
-        <div class="row" id="cards"></div>
-        <!-- Carrito de compra pintado -->
-        <table class="table mt-5">
-            <thead>
-                <tr>
-                    <th scope="col" class="text-primary">ID</th>
-                    <th scope="col" class="text-primary">Producto</th>
-                    <th scope="col" class="text-primary">Cantidad</th>
-                    <th scope="col" class="text-primary">Acción</th>
-                    <th scope="col" class="text-primary">Total</th>
-                </tr>
-            </thead>
-            <tbody id="items"></tbody>
-            <tfoot>
-                <tr id="footer">
-                    <th scope="row" colspan="5" class="text-primary">Carrito vacío - comience a comprar!</th>
-                </tr>
-            </tfoot>
-        </table>
-        <!-- Fin carrito de compra -->
-    </div>
-    <!-- Fin titulo -->
-
-
-
-
-
-    <!-- Los template no los lee el HTML por eso pueden estar fuera del container principal  -->
-    <template id="template-card">
-        <div class="col-12 col-md-4 mb-2">
-            <div class="card">
-                <img src="" alt="" class=card-img-top>
-                <div class=card-body>
-                    <h5 class="text-primary">Titulo</h5>
-                    <p class="text-primary">Precio <span>CLP</span> </p>
-                    <button  class="btn btn-primary"> agregar al carrito </button>
-                </div>
-            </div>
+  <br><br>
+  <header style="background-color: #3e3e3f; padding-top:10px;padding-bottom:10px ;" >
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Poleras</h1>
+            <p class="lead fw-normal text-white-50 mb-0">A luca y a mil!</p>
         </div>
-    </template>
-    <!-- Aca termina el template Card-productos -->
-
-    <!-- Template-Carro de compras principal -->
-    <template id="template-carrito">
-        <tr>
-            <th scope="row" class="text-primary">id</th>
-            <td class="text-primary">Café</td>
-            <td class="text-primary">1</td>
-            <td>
-                <button class="btn btn-info btn-sm">
-                    +
-                </button>
-                <button class="btn btn-danger btn-sm">
-                    -
-                </button>
-            </td>
-            <td class="text-primary">$ <span class="text-primary">500 </span><span> CLP</span></td>
-        </tr>
-    </template>
-    <!-- Aca termina template-carro de compras principal -->
-
-    <!-- Template-Carro de compra Footer -->
-    <template id="template-footer">
-        <th scope="row" colspan="2" class="text-primary">Total productos</th>
-        <td class="text-primary">10</td>
-        <td>
-           
-            
-            
-            <button type="button" class="btn btn-danger btn-sm"  id="vaciar-carrito" >Vaciar Carrito</button>
-            
-            <a href="/boleta.html" class="btn btn-primary btn-sm" type="button"  id="comprar-todo">Comprar Todo</a>
-
-
-
-        </td>
-        <td class="font-weight-bold text-primary">$ <span>5,000</span> <span> CLP</span></td>
-    </template>
-    <!-- Aca termina Template-Carro de compra Footer  -->
+    </div>
+  </header>
+  
+  <section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-start">
+  
+        {% for p in producto %}
+        <div class="col mb-5">
+          <div class="card cartaproducto h-100 border-2">
+              <!-- Product image-->
+              <img class="card-img-top" src="{% static 'img/'%}{{p.imagen}}" alt="...">
+              <!-- Product details-->
+              <div class="card-body p-4">
+                  <div class="text-center">
+                      <!-- Product name-->
+                      <h5 class="fw-bolder">{{p.nombre_producto}}</h5>
+                      <!-- Product price-->
+                      <div>${{p.precio_producto}}</div>
+                      <div>Stock: {{p.stock_producto}}</div>
+                  </div>
+              </div>
+              <!-- Product actions-->
+              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div class="text-center"><a href="carro" class="boton-añadir-al-carro btn mt-auto" >Añadir al carro</a></div>
+              </div>
+          </div>
+      </div>
+  
+  
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+   
+    <!-- Footer -->
+    <footer class="text-center text-primary py-5 container">
+      <div class="text-center py-5">
+        
+      </div>
+     <div class="row">
+        <div class="col-12 col-md-4 mb-5">
+          <div class="card text-center text-white bg-primary" style="width: 18rem;">
+             <div class="card-header">
+              Esta pagina fue creada por: 
+             </div>
+             <ul class="list-group list-group-flush">
+              <li class="list-group-item text-primary">José Fernandez</li>
+              <li class="list-group-item text-primary">Cristobal Lopez</li>
+             
+            </ul>
+          </div>
+        </div>
+  
+        <div class="col-12 col-md-4 mb-5">
+          <div class="card text-center text-white bg-primary" style="width: 18rem;">
+             <div class="card-header">
+             Contacto: 
+             </div>
+             <ul class="list-group list-group-flush">
+              <li class="bi bi-telephone-fill list-group-item text-primary"> +569 48595822</li>
+              <li class="bi bi-telephone-fill list-group-item text-primary"> +569 51174907</li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="col-12 col-md-4 mb-5">
+          <div class="card text-center text-white bg-primary" style="width: 18rem;">
+             <div class="card-header">
+             Otros contactos:
+             </div>
+             <ul class="list-group list-group-flush">
+              <i class="bi bi-envelope-heart list-group-item text-primary"> fundation@acdc.com</i>
+              <i class="bi bi-instagram list-group-item text-primary">/acdccolaborate@acdc.com</i>
+              <i class="bi bi-facebook list-group-item text-primary">/ayudaafundationacd </i>
+            </ul>
+          </div>
+        </div>
+  
+      </div>
+      
     
+  
+    </footer>
+    <!-- Footer -->
+  
+
+   
 
 
 <!-- Javascript -->
