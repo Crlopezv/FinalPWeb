@@ -83,34 +83,26 @@
     </div>
   </header>
   
-  <section class="py-5">
+  <section class="container">
     <div class="container px-4 px-lg-5 mt-5">
       <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-start">
   
         {% for d in disco %}
         <div class="col mb-5">
           <div class="card cartaproducto h-100 border-2">
-              <!-- Product image-->
-              <img class="card-img-top" src="{% static 'img/'%}{{p.imagen}}" alt="...">
-              <!-- Product details-->
-              <div class="card-body p-4">
-                  <div class="text-center">
-                      <!-- Product name-->
-                      <h5 class="fw-bolder">{{d.nombre}}</h5>
-                      <td class="bg-light"><img src="{% static 'img/'%}{{d.imagen}}" style="max-width: 200px;"></td>
-                      <!-- Product price-->
-                      <div>Lanzamiento:${{d.año}}</div>
-                      <div>${{d.año}}</div>
-                      <div>${d.descripción}}</div>
-                      <div>N° Canciones:{{d.canciones}}</div>
-                  </div>
+            <div class="card-body p-4">
+              <div class="text-center">
+                <!-- Product name-->
+                <h5 class="fw-bolder">{{d.nombre}}</h5>
+                <td class="bg-light"><img src="{% static 'img/'%}{{d.portada}}" style="max-width: 200px;"></td>
+                <!-- Product price-->
+                <div>Lanzamiento:{{d.año}}</div>
+                <div>N° Canciones:{{d.canciones}}</div>
+                <div>{d.descripción}}</div>
               </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center"><a href="carro" class="boton-añadir-al-carro btn mt-auto" >Añadir al carro</a></div>
-              </div>
+            </div>
           </div>
-      </div>
+        </div>
   
   
         {% endfor %}
@@ -132,7 +124,7 @@
     </div>
    <div class="row">
       <div class="col-12 col-md-4 mb-5">
-        <div class="card text-center text-white bg-primary" style="width: 18rem;">
+        <div class="card text-center text-white" style="background-color: #801c1d;width: 18rem;">
            <div class="card-header">
             Esta pagina fue creada por: 
            </div>
@@ -145,7 +137,7 @@
       </div>
 
       <div class="col-12 col-md-4 mb-5">
-        <div class="card text-center text-white" style=" background-color: #3e3e3f;width: 18rem;">
+        <div class="card text-center text-white" style=" background-color: #801c1d;width: 18rem;">
            <div class="card-header">
            Contacto: 
            </div>
@@ -157,7 +149,7 @@
       </div>
 
       <div class="col-12 col-md-4 mb-5">
-        <div class="card text-center text-white bg-primary" style="width: 18rem;">
+        <div class="card text-center text-white" style="background-color: #801c1d;width: 18rem;">
            <div class="card-header">
            Otros contactos:
            </div>

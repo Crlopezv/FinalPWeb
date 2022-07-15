@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from .models import Usuario, Categoria
+from .models import Usuario, Categoria,Disco
 from django.shortcuts import redirect, render
 from django.contrib.auth import logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
-from .forms import ProductoForm
+from .forms import ProductoForm, DiscoForm
 from .models import Producto
 # Create your views here.
 def sesion(request):
@@ -30,6 +30,14 @@ def admin_productos(request):
     datos={'producto':producto,'form':form}
 
     return render(request,'admin_productos.html',datos)
+
+def admin_discografía(request):
+    form = DiscoForm()
+    disco = Disco.objects.all()
+    datos={'disco':disco,'form':form}
+
+    return render(request,'admin_discografía.html',datos)
+
 
 def register(request):
     r_correo= request.POST.get('registroEmail')
@@ -144,3 +152,58 @@ def eliminarProducto(request, p_id):
     if(buscado):
         Producto.delete(buscado)
         return redirect('/admin_productos')
+
+
+def guardarDisco(request):
+    #pasando la data a las variables
+    v_nombre_disco=request.POST.get('nombre')
+    v_año_disco=request.POST.get('año')
+    v_descripcion_disco=request.POST.get('descripcion')
+    v_canciones=request.POST.get('canciones')
+    v_portada=request.POST.get('portada')
+    
+    nuevo=Disco()
+    nuevo.nombre= v_nombre_disco
+    nuevo.año=v_año_disco
+    nuevo.descripcion=v_descripcion_disco
+    nuevo.canciones=v_canciones
+    nuevo.portada=v_portada
+
+    #guarda la data del objeto
+    Disco.save(nuevo)
+
+    return redirect('/admin_discografía')
+
+def eliminarDisco(request, p_id):
+    buscado=Disco.objects.get(id=p_id)
+    if(buscado):
+        Disco.delete(buscado)
+        return redirect('/admin_discografía')
+
+
+def buscarDisco(request, p_id):
+    buscado=Disco.objects.get(id=p_id)
+    datos={'disco': buscado}
+    return render(request, 'admin_editdisco.html', datos)
+
+def guardarDiscoModificado(request):
+    v_id=request.POST.get('id')
+    v_nombre_disco=request.POST.get('nombre')
+    v_año_disco=request.POST.get('año')
+    v_descripcion_disco=request.POST.get('descripcion')
+    v_canciones=request.POST.get('canciones')
+    v_portada=request.POST.get('portada')
+    
+    buscado=Disco.objects.get(id=v_id)
+
+    if(buscado):
+        buscado.id=v_id
+        buscado.nombre=v_nombre_disco
+        buscado.año=v_año_disco
+        buscado.descripcion=v_descripcion_disco
+        buscado.canciones=v_canciones
+        buscado.portada=v_portada
+
+
+        Disco.save(buscado)
+        return redirect('/admin_discografía')

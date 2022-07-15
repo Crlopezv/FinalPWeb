@@ -55,7 +55,7 @@ urlpatterns = [
 
     path('guardarProducto',guardarProducto),
 
-    path('modificarProducto/<p_id>', buscarProducto),
+    
 
     #eliminar producto
     path('eliminarProducto/<p_id>', eliminarProducto),
@@ -63,7 +63,20 @@ urlpatterns = [
     #eliminar producto
     path('guardarProductoModificado/', guardarProductoModificado),
 
+    path('admin_discografía',admin_discografía),
 
+    path('guardarDisco',guardarDisco),
+
+    path('api/', include('api.urls')),
+
+    path('eliminarDisco/<p_id>',eliminarDisco),
+
+    path('modificarProducto/<p_id>', buscarProducto),
+    
+    path('modificarDisco/<p_id>', buscarDisco),
+
+    path('guardarDiscoModificado/', guardarDiscoModificado),
 ]
+
 
 

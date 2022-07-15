@@ -23,7 +23,7 @@
 <body style="background-color: #f0f2f9 ;">
   <br><br><br>
   <!-- Navbar-Principal -->
-  <nav id="navbarejemplo" class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color: rgb(38, 38, 38);">
+   <nav id="navbarejemplo" class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color: rgb(38, 38, 38);">
     <div class="container">
       <a href="home" class="navbar-brand">
         <img class="logo-nav" src="{% static 'img/logo.png' %}" class="icon icon-tabler icon-tabler-dog-bowl" width="130"
@@ -55,7 +55,8 @@
             </a>
   
           </li>
-
+  
+  
           <li class="nav-item">
             <a href="discografia" class="nav-link active">
               Discografía
@@ -91,20 +92,21 @@
                     class="fa fa-fw fa-cog mr-1"></i><span>Discografía</span></a></li>
               <li class="nav-item fs-5"><a class="nav-link px-2 text-light" href="/api/traerProductos" target="__blank"><i
                     class="bi bi-server mr-1"></i><span>API</span></a>
+
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="col"><br><br>
-        <h4 class=" text-light py-3 rounded-3 text-center fs-2 ms-4 w-75" style="background-color: rgb(77, 77, 77);">Productos</h4>
+        <h4 class=" text-light py-3 rounded-3 text-center fs-2 ms-4 w-75" style="background-color: rgb(77, 77, 77);">Discos</h4>
         <div class="row flex-lg-nowrap">
           <div class="col mb-3"><!--este-->
             <div class="e-panel card border-light">
               <div class="card-body rounded-3"style="background-color: rgb(77, 77, 77);">
                 <div class="e-table">
                   <div class="table-responsive table-lg mt-3">
-                    <table class="table table-bordered"><!--tabla itera productos-->
+                    <table class="table table-bordered">
                       <thead>
                         <tr>
                           <th class=" align-top text-light"style="background-color: rgb(77, 77, 77);">
@@ -114,19 +116,18 @@
                               <label class="custom-control-label" for="all-items"></label>
                             </div>
                           </th>
-                          <th class=" text-light text-center"style="background-color: rgb(77, 77, 77);">ID producto</th>
-                          <th class=" max-width text-light text-center"style="background-color: rgb(77, 77, 77);">Nombre producto</th>
-                          <th class=" sortable text-light text-center"style="background-color: rgb(77, 77, 77);">Categoria producto</th>
-                          <th class=" text-light text-center"style="background-color: rgb(77, 77, 77);">Descripcion</th>
-                          <th class=" text-light text-center"style="background-color: rgb(77, 77, 77);">Precio</th>
-                          <th class=" text-light text-center"style="background-color: rgb(77, 77, 77);">Nombre foto</th>
-                          <th class=" text-light text-center"style="background-color: rgb(77, 77, 77);">Stock</th>
-                          <th class=" text-light text-center"style="background-color: rgb(77, 77, 77);">Editar</th>
-                          <!-- <th class="bg-secondary text-light">Stock</th> -->
+                          <th class=" text-light text-center"style="background-color: rgb(77, 77, 77);">ID Disco</th>
+                          <th class=" max-width text-light text-center"style="background-color: rgb(77, 77, 77);">Nombre Disco</th>
+                          <th class=" sortable text-light text-center"style="background-color: rgb(77, 77, 77);">Año de Lanzamiento</th>
+                          <th class=" text-light text-center"style="background-color: rgb(77, 77, 77);">Descripción</th>
+                          <th class=" text-light text-center"style="background-color: rgb(77, 77, 77);">Número de Canciones</th>
+                          <th class=" text-light text-center"style="background-color: rgb(77, 77, 77);">Portada</th>
+
+
                         </tr>
                       </thead>
                       <tbody>
-                        {% for p in producto %}<!--Trae productos de la tabla-->
+                        {% for d in disco %}<!--Trae productos de la tabla-->
                         <tr>
                           <!--Fila cuerpo tabla-->
                           <td class="bg-light align-middle">
@@ -137,13 +138,12 @@
                               <label class="custom-control-label" for="item-1"></label>
                             </div>
                           </td>
-                          <td class="align-middle text-center bg-light">{{p.id}}</td>
-                          <td class="text-nowrap align-middle bg-light">{{p.nombre_producto}}</td>
-                          <td class="text-nowrap align-middle text-center bg-light">{{p.categoria_id}}</td>
-                          <td class="text-center align-middle bg-light">{{p.descripcion_producto}}</td>
-                          <td class="text-center align-middle bg-light">${{p.precio_producto}}</td>
-                          <td class="bg-light"><img src="{% static 'img/'%}{{p.imagen}}" style="max-width: 200px;"></td>
-                          <td class="bg-light align-middle text-center">{{p.stock_producto}}</td>
+                          <td class="align-middle text-center bg-light">{{d.id}}</td>
+                          <td class="text-nowrap align-middle bg-light">{{d.nombre}}</td>
+                          <td class="text-nowrap align-middle text-center bg-light">{{d.año}}</td>
+                          <td class="text-center align-middle bg-light">{{d.descripcion}}</td>
+                          <td class="text-center align-middle bg-light">{{d.canciones}}</td>
+                          <td class="bg-light"><img src="{% static 'img/'%}{{d.portada}}" style="max-width: 200px;"></td>
                           <td class="text-center align-middle bg-light">
                             <!--Columna botones edit-->
                             <div class="btn-group align-top">
@@ -151,11 +151,11 @@
                               <button class="btn btn-sm btn-outline-success badge text-light bg-success" type="button"
                                 data-toggle="modal" data-target="#user-form-modal">
                                 <a class="text-decoration-none text-light"
-                                  href="modificarProducto/{{p.id}}">Edit</a>
+                                  href="modificarDisco/{{d.id}}">Edit</a>
                               </button>
                               <!--Trash btn-->
                               <button class="btn btn-sm btn-outline-danger badge text-light bg-danger" type="button">
-                                <a class href="eliminarProducto/{{p.id}}"><i
+                                <a class href="eliminarDisco/{{d.id}}"><i
                                     class="text-decoration-none text-light fa fa-trash"></i></a>
                               </button>
                             </div>
@@ -176,29 +176,29 @@
               <div class="card-body" style="background-color: #f0f2f9 ; padding-left: 0;">
                 <div class="text-center px-xl-3">
                   <button class="btn btn-success fs-3 btn-block rounded" type="button" data-bs-toggle="modal"
-                    data-bs-target="#user-form-modal">Ingresar producto</button>
+                    data-bs-target="#user-form-modal">Ingresar Disco</button>
                 </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- User Form Modal / ingresar productos -->
+       
         <div class="modal fade" role="dialog" tabindex="-1" id="user-form-modal">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div style="background-color:rgb(77, 77, 77);" class="modal-header text-light"><!--no me tomo el bg azul desde el CSS :(-->
-                <h5 class="modal-title">Ingresar un producto</h5>
+                <h5 class="modal-title">Ingresar un Disco</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
               </div>
               <div class="modal-body">
                 <div class="py-1">
-                  <form class="form" action="guardarProducto" method="post"><!--Formulario ingreso productos-->
+                  <form class="form" action="guardarDisco" method="post"><!--Formulario ingreso productos-->
                     {{form}}
                     {% csrf_token %}
                     <div class="row"><!--Submit-->
                       <div class="col d-flex justify-content-end">
-                        <button class="btn btn-success" onclick="showToast" type="submit">Ingresar producto</button><!--CON ESTE BOTON DESPLEGAR EL TOAST-->
+                        <button class="btn btn-success" onclick="showToast" type="submit">Ingresar Disco</button><!--CON ESTE BOTON DESPLEGAR EL TOAST-->
                         
                       </div>
                     </div>

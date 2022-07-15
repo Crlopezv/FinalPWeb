@@ -56,7 +56,7 @@
   <section class="">
     <!-- User Form Modal / Editar productos -->
 
-              <form class="form" action="/guardarProductoModificado/" method="post">
+              <form class="form" action="/guardarDiscoModificado/" method="post">
                 <!--Formulario ingreso productos-->
                 {% csrf_token %}
                 <div class="row">
@@ -65,16 +65,16 @@
                       <div class="col">
                         <div class="form-group">
                           <!--Nombre producto-->
-                          <label>Nombre producto</label>
-                          <input class="form-control" value="{{producto.nombre_producto}}" type="text"
-                            id="nombre_producto" name="nombre_producto">
+                          <label>Nombre Disco</label>
+                          <input class="form-control" value="{{disco.nombre}}" type="text"
+                            id="nombre" name="nombre">
                         </div>
                       </div>
                       <div class="col">
                         <div class="form-group">
                           <!--Categorias productos-->
-                          <label>Categoria producto: </label>
-                          <input class="form-control" value="{{producto.categoria_id}}" type="text"
+                          <label>Año: </label>
+                          <input class="form-control" value="{{disco.año}}" type="text"
                             id="categoria" name="categoria">
                         </div>
                       </div>
@@ -83,9 +83,9 @@
                       <div class="col">
                         <div class="form-group">
                           <!--Descripcion producto-->
-                          <label>Descripcion producto</label>
-                          <input class="form-control" value="{{producto.descripcion_producto}}"
-                            name="descripcion_producto" id="descripcion_producto" type="text">
+                          <label>Descripción</label>
+                          <input class="form-control" value="{{disco.descripcion}}"
+                            name="descripcion" id="descripcion" type="text">
                         </div>
                       </div>
                     </div>
@@ -93,40 +93,22 @@
                       <div class="col mb-3">
                         <div class="form-group">
                           <!--Precio producto-->
-                          <label>Precio</label>
-                          <input type="number" class="form-control" value="{{producto.precio_producto}}"
-                            name="precio_producto" id="precio_producto" rows="5"></input>
+                          <label>Canciones</label>
+                          <input class="form-control" value="{{disco.canciones}}"
+                            name="canciones" id="canciones" rows="5"></input>
                         </div>
-                      </div>
-                      <div class="col mb-3">
-                        <div class="form-group">
-                          <!--ID producto-->
-                          <label>ID producto</label>
-                          <input readonly type="number" value="{{producto.id}}" class="form-control" name="id" id="id"
-                            rows="5"></input>
-                        </div>
-                      </div>
+                      </div>                      
                     </div>
-
                     <div class="row">
                       <div class="col mb-3">
                         <div class="form-group">
                           <!--Nombre foto producto-->
-                          <label>Nombre foto</label>
-                          <input class="form-control" value="{{producto.imagen}}" name="imagen" id="imagen" rows="5"></input>
+                          <label>Portada</label>
+                          <input class="form-control" value="{{disco.portada}}" name="Portada" id="Portada" rows="5"></input>
                         </div>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col mb-3">
-                        <div class="form-group">
-                          <!--Stock producto-->
-                          <label>Stock</label>
-                          <input type="number" class="form-control" value="{{producto.stock_producto}}"
-                            name="stock_producto" id="stock_producto" rows="5"></input>
-                        </div>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
                 <div class="row">
